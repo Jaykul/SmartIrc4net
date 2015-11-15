@@ -8,9 +8,9 @@
  * SmartIrc4net - the IRC library for .NET/C# <http://smartirc4net.sf.net>
  *
  * Copyright (c) 2003-2005 Mirco Bauer <meebey@meebey.net> <http://www.meebey.net>
- * 
+ *
  * Full LGPL License: <http://www.gnu.org/licenses/lgpl.txt>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -38,19 +38,19 @@ namespace Meebey.SmartIrc4net
     public class ActionEventArgs : CtcpEventArgs
     {
         private string _ActionMessage;
-        
+
         public string ActionMessage {
             get {
                 return _ActionMessage;
             }
         }
-         
+
         internal ActionEventArgs(IrcMessageData data, string actionmsg) : base(data, "ACTION", actionmsg)
         {
             _ActionMessage = actionmsg;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
@@ -58,90 +58,90 @@ namespace Meebey.SmartIrc4net
     {
         private string _CtcpCommand;
         private string _CtcpParameter;
-        
+
         public string CtcpCommand {
             get {
                 return _CtcpCommand;
             }
         }
-         
+
         public string CtcpParameter {
             get {
                 return _CtcpParameter;
             }
         }
-         
+
         internal CtcpEventArgs(IrcMessageData data, string ctcpcmd, string ctcpparam) : base(data)
         {
             _CtcpCommand = ctcpcmd;
             _CtcpParameter = ctcpparam;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
     public class ErrorEventArgs : IrcEventArgs
     {
         private string _ErrorMessage;
-        
+
         public string ErrorMessage {
             get {
                 return _ErrorMessage;
             }
         }
-         
+
         internal ErrorEventArgs(IrcMessageData data, string errormsg) : base(data)
         {
             _ErrorMessage = errormsg;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
     public class MotdEventArgs : IrcEventArgs
     {
         private string _MotdMessage;
-        
+
         public string MotdMessage {
             get {
                 return _MotdMessage;
             }
         }
-         
+
         internal MotdEventArgs(IrcMessageData data, string motdmsg) : base(data)
         {
             _MotdMessage = motdmsg;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
     public class PingEventArgs : IrcEventArgs
     {
         private string _PingData;
-        
+
         public string PingData {
             get {
                 return _PingData;
             }
         }
-         
+
         internal PingEventArgs(IrcMessageData data, string pingdata) : base(data)
         {
             _PingData = pingdata;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
     public class PongEventArgs : IrcEventArgs
     {
         private TimeSpan _Lag;
-        
+
         public TimeSpan Lag {
             get {
                 return _Lag;
@@ -163,7 +163,7 @@ namespace Meebey.SmartIrc4net
         private string _Who;
         private string _Whom;
         private string _KickReason;
-        
+
         public string Channel {
             get {
                 return _Channel;
@@ -175,19 +175,19 @@ namespace Meebey.SmartIrc4net
                 return _Who;
             }
         }
-         
+
         public string Whom {
             get {
                 return _Whom;
             }
         }
-         
+
         public string KickReason {
             get {
                 return _KickReason;
             }
         }
-         
+
         internal KickEventArgs(IrcMessageData data, string channel, string who, string whom, string kickreason) : base(data)
         {
             _Channel = channel;
@@ -196,7 +196,7 @@ namespace Meebey.SmartIrc4net
             _KickReason = kickreason;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
@@ -204,7 +204,7 @@ namespace Meebey.SmartIrc4net
     {
         private string _Channel;
         private string _Who;
-        
+
         public string Channel {
             get {
                 return _Channel;
@@ -216,14 +216,14 @@ namespace Meebey.SmartIrc4net
                 return _Who;
             }
         }
-         
+
         internal JoinEventArgs(IrcMessageData data, string channel, string who) : base(data)
         {
             _Channel = channel;
             _Who = who;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
@@ -244,7 +244,7 @@ namespace Meebey.SmartIrc4net
                 return _UserList;
             }
         }
-         
+
         internal NamesEventArgs(IrcMessageData data, string channel, string[] userlist, string[] rawUserList) : base(data)
         {
             _Channel = channel;
@@ -259,7 +259,7 @@ namespace Meebey.SmartIrc4net
     public class ListEventArgs : IrcEventArgs
     {
         private ChannelInfo f_ListInfo;
-        
+
         public ChannelInfo ListInfo {
             get {
                 return f_ListInfo;
@@ -271,7 +271,7 @@ namespace Meebey.SmartIrc4net
             f_ListInfo = listInfo;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
@@ -279,7 +279,7 @@ namespace Meebey.SmartIrc4net
     {
         private string   _Channel;
         private string   _Who;
-        
+
         public string Channel {
             get {
                 return _Channel;
@@ -291,7 +291,7 @@ namespace Meebey.SmartIrc4net
                 return _Who;
             }
         }
-         
+
         internal InviteEventArgs(IrcMessageData data, string channel, string who) : base(data)
         {
             _Channel = channel;
@@ -307,7 +307,7 @@ namespace Meebey.SmartIrc4net
         private string   _Channel;
         private string   _Who;
         private string   _PartMessage;
-        
+
         public string Channel {
             get {
                 return _Channel;
@@ -319,13 +319,13 @@ namespace Meebey.SmartIrc4net
                 return _Who;
             }
         }
-         
+
         public string PartMessage {
             get {
                 return _PartMessage;
             }
         }
-        
+
         internal PartEventArgs(IrcMessageData data, string channel, string who, string partmessage) : base(data)
         {
             _Channel = channel;
@@ -333,7 +333,7 @@ namespace Meebey.SmartIrc4net
             _PartMessage = partmessage;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
@@ -354,56 +354,56 @@ namespace Meebey.SmartIrc4net
                 return f_WhoInfo.Nick;
             }
         }
-         
+
         [Obsolete("Use WhoEventArgs.WhoInfo instead.")]
         public string Ident {
             get {
                 return f_WhoInfo.Ident;
             }
         }
-        
+
         [Obsolete("Use WhoEventArgs.WhoInfo instead.")]
         public string Host {
             get {
                 return f_WhoInfo.Host;
             }
         }
-        
+
         [Obsolete("Use WhoEventArgs.WhoInfo instead.")]
         public string Realname {
             get {
                 return f_WhoInfo.Realname;
             }
         }
-        
+
         [Obsolete("Use WhoEventArgs.WhoInfo instead.")]
         public bool IsAway {
             get {
                 return f_WhoInfo.IsAway;
             }
         }
-        
+
         [Obsolete("Use WhoEventArgs.WhoInfo instead.")]
         public bool IsOp {
             get {
                 return f_WhoInfo.IsOp;
             }
         }
-        
+
         [Obsolete("Use WhoEventArgs.WhoInfo instead.")]
         public bool IsVoice {
             get {
                 return f_WhoInfo.IsVoice;
             }
         }
-        
+
         [Obsolete("Use WhoEventArgs.WhoInfo instead.")]
         public bool IsIrcOp {
             get {
                 return f_WhoInfo.IsIrcOp;
             }
         }
-        
+
         [Obsolete("Use WhoEventArgs.WhoInfo instead.")]
         public string Server {
             get {
@@ -417,7 +417,7 @@ namespace Meebey.SmartIrc4net
                 return f_WhoInfo.HopCount;
             }
         }
-        
+
         public WhoInfo WhoInfo {
             get {
                 return f_WhoInfo;
@@ -429,7 +429,35 @@ namespace Meebey.SmartIrc4net
             f_WhoInfo = whoInfo;
         }
     }
-    
+
+    public class IsLoggedInEventArgs : IrcEventArgs
+    {
+        private string _nick;
+        private string _account;
+
+        public string Account
+        {
+            get
+            {
+                return _account;
+            }
+        }
+
+        public string Nick
+        {
+            get
+            {
+                return _nick;
+            }
+        }
+
+        internal IsLoggedInEventArgs(IrcMessageData data, string nick, string account) : base(data)
+        {
+            _nick = nick;
+            _account = account;
+        }
+    }
+
     /// <summary>
     ///
     /// </summary>
@@ -437,7 +465,7 @@ namespace Meebey.SmartIrc4net
     {
         private string   _Who;
         private string   _QuitMessage;
-        
+
         public string Who {
             get {
                 return _Who;
@@ -449,7 +477,7 @@ namespace Meebey.SmartIrc4net
                 return _QuitMessage;
             }
         }
-        
+
         internal QuitEventArgs(IrcMessageData data, string who, string quitmessage) : base(data)
         {
             _Who = who;
@@ -465,7 +493,7 @@ namespace Meebey.SmartIrc4net
     {
         private string   _Who;
         private string   _AwayMessage;
-        
+
         public string Who {
             get {
                 return _Who;
@@ -477,7 +505,7 @@ namespace Meebey.SmartIrc4net
                 return _AwayMessage;
             }
         }
-        
+
         internal AwayEventArgs(IrcMessageData data, string who, string awaymessage) : base(data)
         {
             _Who = who;
@@ -491,7 +519,7 @@ namespace Meebey.SmartIrc4net
     {
         private string   _OldNickname;
         private string   _NewNickname;
-        
+
         public string OldNickname {
             get {
                 return _OldNickname;
@@ -503,7 +531,7 @@ namespace Meebey.SmartIrc4net
                 return _NewNickname;
             }
         }
-        
+
         internal NickChangeEventArgs(IrcMessageData data, string oldnick, string newnick) : base(data)
         {
             _OldNickname = oldnick;
@@ -518,7 +546,7 @@ namespace Meebey.SmartIrc4net
     {
         private string   _Channel;
         private string   _Topic;
-        
+
         public string Channel {
             get {
                 return _Channel;
@@ -530,14 +558,14 @@ namespace Meebey.SmartIrc4net
                 return _Topic;
             }
         }
-        
+
         internal TopicEventArgs(IrcMessageData data, string channel, string topic) : base(data)
         {
             _Channel = channel;
             _Topic = topic;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
@@ -546,7 +574,7 @@ namespace Meebey.SmartIrc4net
         private string   _Channel;
         private string   _Who;
         private string   _NewTopic;
-        
+
         public string Channel {
             get {
                 return _Channel;
@@ -564,7 +592,7 @@ namespace Meebey.SmartIrc4net
                 return _NewTopic;
             }
         }
-        
+
         internal TopicChangeEventArgs(IrcMessageData data, string channel, string who, string newtopic) : base(data)
         {
             _Channel = channel;
@@ -572,7 +600,7 @@ namespace Meebey.SmartIrc4net
             _NewTopic = newtopic;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
@@ -581,7 +609,7 @@ namespace Meebey.SmartIrc4net
         private string   _Channel;
         private string   _Who;
         private string   _Hostmask;
-        
+
         public string Channel {
             get {
                 return _Channel;
@@ -599,7 +627,7 @@ namespace Meebey.SmartIrc4net
                 return _Hostmask;
             }
         }
-        
+
         internal BanEventArgs(IrcMessageData data, string channel, string who, string hostmask) : base(data)
         {
             _Channel = channel;
@@ -607,7 +635,7 @@ namespace Meebey.SmartIrc4net
             _Hostmask = hostmask;
         }
     }
-    
+
     /// <summary>
     ///
     /// </summary>
@@ -616,7 +644,7 @@ namespace Meebey.SmartIrc4net
         private string   _Channel;
         private string   _Who;
         private string   _Hostmask;
-        
+
         public string Channel {
             get {
                 return _Channel;
@@ -634,7 +662,7 @@ namespace Meebey.SmartIrc4net
                 return _Hostmask;
             }
         }
-        
+
         internal UnbanEventArgs(IrcMessageData data, string channel, string who, string hostmask) : base(data)
         {
             _Channel = channel;
